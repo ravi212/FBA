@@ -19,13 +19,13 @@ const Splash = ({navigation}) =>{
                 <Separator /> */}
                 {/* <ActivityIndicator /> */}
                 <Pressable style={({ pressed }) => [
-          {
-            backgroundColor: pressed
-              ? COLOR.yellow
-              : COLOR.pressed
-          },
-          styles.button
-        ]} onPress={()=>navigation.navigate('Terms')}>
+                              {
+                                backgroundColor: pressed
+                                  ? COLOR.yellow
+                                  : COLOR.pressed
+                              },
+                               styles.button
+                         ]} onPress={()=>navigation.navigate('Home')}>
                     <Text style={styles.text}>{title} </Text>
                 </Pressable>
             </View>

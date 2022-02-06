@@ -1,9 +1,8 @@
 import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import {Term} from '../constants/terms';
-import { COLOR, FONTS, height, width } from '../constants/theme';
+import { COLOR, FONTS } from '../constants/theme';
 import Elevations from 'react-native-elevation'
 const Separator = () => (
     <View style={styles.separator} />

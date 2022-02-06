@@ -7,7 +7,8 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "devtools": "react-devtools"
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.11",
@@ -16,11 +17,15 @@
     "@react-navigation/stack": "^6.1.0",
     "react": "17.0.2",
     "react-native": "0.67.1",
+    "react-native-elements": "^3.4.2",
     "react-native-elevation": "^1.0.0",
     "react-native-gesture-handler": "^2.2.0",
+    "react-native-grid-component": "^2.0.1",
+    "react-native-phone-number-input": "^2.1.0",
     "react-native-reanimated": "^2.2.4",
     "react-native-safe-area-context": "^3.3.2",
-    "react-native-screens": "^3.10.2"
+    "react-native-screens": "^3.10.2",
+    "react-native-vector-icons": "^9.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
