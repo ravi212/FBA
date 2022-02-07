@@ -33,14 +33,18 @@ const AddFamilyMembers = () =>{
                 Contacts.getAll()
                 .then((contact)=>{
                     setContacts(contact);
-                    console.log(contacts);
+                    contacts.map(con=>{
+                        con.phoneNumbers.map(phone=>{
+                            console.log(phone);
+                        });
+                    });
                 })
                 .catch(e=>{
                     console.log(e);
                 })
             })
         }
-    },[contacts])
+    },[])
     return (
         <View style={styles.backgroundContainer}>
             <View style={styles.wrapper}>
@@ -65,7 +69,7 @@ const AddFamilyMembers = () =>{
 
                         }}
                         numColumns={2}
-                        keyExtractor={(item,index)=>index}
+                        keyExtractor={(item,index)=>item.id}
                         contentContainerStyle={{
                             justifyContent: 'center',
                             alignItems: 'center'

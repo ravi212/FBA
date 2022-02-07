@@ -22,6 +22,7 @@ import SetRadius from './src/screens/SetRadius';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import AddFamilyMembers from './src/screens/AddFamilyMembers';
 import Register from './src/screens/Register';
+import AddRequests from './src/screens/AddRequests';
 LogBox.ignoreLogs([
   "[react-native-gesture-handler] Seems like you\'re using an old API with gesture components, check out new Gestures system!",
 ]);
@@ -30,7 +31,7 @@ const App = () => {
     <GestureHandlerRootView style={{flex:1, backgroundColor:COLOR.blue}}>   
     <NavigationContainer theme={DarkTheme} >
       <Stack.Navigator
-        initialRouteName={'Register'}
+        initialRouteName={'AddRequest'}
         screenOptions={{
           gestureEnabled:true,
           gestureDirection:'horizontal',
@@ -43,6 +44,12 @@ const App = () => {
           // )
         }}
       >
+          <Stack.Screen name='AddRequest' component={AddRequests}
+          options={{
+          title: 'Request',
+          headerStyle: Styles.header,
+          headerTintColor: '#ffffff'
+          }}/>
           <Stack.Screen name='SignIn' component={Register}
           options={{
           headerShown: false,
