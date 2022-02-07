@@ -3,7 +3,7 @@ import { Pressable,SafeAreaView, View, StyleSheet, KeyboardAvoidingView, Image, 
 import PhoneInput from 'react-native-phone-number-input';
 import images from '../constants/images';
 import { COLOR, FONTS, height } from '../constants/theme';
-const Signin = () => {
+const Signin = ({navigation}) => {
     const[enableShift, setEnableShift] = useState(false);
     
     return (
@@ -15,7 +15,7 @@ const Signin = () => {
         <ScrollView bounces={false}>
             <SafeAreaView style={styles.container}>
               <View style={styles.header}>
-                  <Text style={{ fontWeight:'bold', color:'#ffffff', fontSize: 20}}>SignIn</Text>
+                  <Text style={{ fontWeight:'bold', color:'#ffffff', fontSize: 20}}>Sign In</Text>
                   <Image source={images.Logo} style={styles.image} />
                 </View>
             <View style={{height:height}}> 
@@ -38,7 +38,9 @@ const Signin = () => {
               style={styles.passInput}
               onFocus={()=>setEnableShift(true)}
             />
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=>{
+              navigation.push('ForgetPassword');
+            }}>
                 <Text style={styles.forgetText}>Forget Password?</Text>
             </TouchableOpacity>
                 <Pressable style={({ pressed }) => [
@@ -58,7 +60,7 @@ const Signin = () => {
                                   : COLOR.pressed
                               },
                                styles.button
-                         ]} onPress={()=>{}}>
+                         ]} onPress={()=>{ navigation.push('SignUp');}}>
                     <Text style={styles.text}>SignUp </Text>
                 </Pressable>
           

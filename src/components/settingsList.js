@@ -5,7 +5,11 @@ import { COLOR } from "../constants/theme";
 const SettingsList = (props) =>{
     return (
         <View style={styles.wrapper}>
-          <Pressable style={styles.pressable} android_ripple ={{backgroundColor: 'red', borderless: true}}>
+          <Pressable 
+          style={styles.pressable} 
+          android_ripple ={{backgroundColor: 'red', borderless: true}}
+          onPress={props.navigate}
+          >
             <Image style={styles.image} source={props.imageSource}/>
             <Text style={styles.textStyle}>{props.text}</Text>
             </Pressable>

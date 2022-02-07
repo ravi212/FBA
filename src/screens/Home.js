@@ -13,7 +13,7 @@ const Separator = () => (
   );
 const Home = () =>{
     return (
-        <SafeAreaView style={{flex: 1}}>
+        <SafeAreaView style={{flex: 1, backgroundColor:'white'}}>
           <View style={styles.header}>
             <Text style={{flex:1, marginLeft:40, fontWeight:'bold', color:'#ffffff', fontSize: 20}}>Home</Text>
             <Image source={images.Logo} style={styles.image} />

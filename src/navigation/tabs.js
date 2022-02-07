@@ -89,7 +89,6 @@ const screenOptions =  {
       borderTopRightRadius:40,
       shadowColor: '#ffffff',
       position: 'absolute',
-
     },
     tabBarItemStyle:{
         borderTopLeftRadius: 40,

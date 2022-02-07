@@ -10,18 +10,11 @@ const SetRadius = () => {
     const [numFour, setNumFour] = useState('');
     const ref= useRef();
     return (
-     <KeyboardAvoidingView 
-     keyboardVerticalOffset={-200}
-      style={{flex:1, backgroundColor:'white'}} 
-      behavior={Platform.OS === "android" ? "position" : "padding"} 
-      enabled={enableShift}>
-        <ScrollView bounces={false}>
             <SafeAreaView style={styles.container}>
               <View style={styles.header}>
                   <Text style={{  fontWeight:'bold', color:'#ffffff', fontSize: 20}}>Set Radius</Text>
                   <Image source={images.Logo} style={styles.image} />
                 </View>
-            <View style={{height:height}}> 
               <View style={styles.wrapper}>
                 <Pressable style={({ pressed }) => [
                               {
@@ -34,10 +27,7 @@ const SetRadius = () => {
                     <Text style={styles.text}>Save</Text>
                 </Pressable>          
             </View>
-            </View>
           </SafeAreaView>
-        </ScrollView>
-     </KeyboardAvoidingView>
     )
 }
 const styles = StyleSheet.create({

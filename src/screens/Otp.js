@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { createRef, useEffect, useRef, useState } from 'react';
 import { Pressable,SafeAreaView, View, StyleSheet, KeyboardAvoidingView, Image, Text, TextInput, ScrollView, Platform, TouchableOpacity } from 'react-native';
 import PhoneInput from 'react-native-phone-number-input';
 import images from '../constants/images';
@@ -9,7 +9,17 @@ const Otp = () => {
     const [numTwo, setNumTwo] = useState('');
     const [numThree, setNumThree] = useState('');
     const [numFour, setNumFour] = useState('');
-    const ref= useRef();
+    const num1= useRef(null);
+    const num2= useRef(null);
+    const num3= useRef(null);
+    const num4= useRef(null);
+
+    useEffect(()=>{
+      num1.current.focus();
+    }
+    ,[num1]);
+
+
     return (
      <KeyboardAvoidingView 
      keyboardVerticalOffset={-200}
@@ -25,6 +35,7 @@ const Otp = () => {
             <View style={{height:height}}> 
               <View style={styles.wrapper}>
               <TextInput
+              ref={num1}
               placeholderTextColor={COLOR.blue}
               secureTextEntry={true}
               multiline={false}
@@ -37,11 +48,12 @@ const Otp = () => {
               onChangeText={(value) => {
                 setNumOne(value);
                 if (value.length === 1) {
-                ref.current.focus();
+                  num2.current.focus();
                 }
                 }}
             />
               <TextInput
+              ref={num2}
               placeholderTextColor={COLOR.blue}
               secureTextEntry={true}
               multiline={false}
@@ -54,10 +66,15 @@ const Otp = () => {
               onChangeText={(value) => {
                 setNumTwo(value);
                 if (value.length === 1) {
+                  num3.current.focus();
+                }
+                else if(value.length === 0){
+                  num1.current.focus();
                 }
                 }}
             />
             <TextInput
+            ref={num3}
               placeholderTextColor={COLOR.blue}
               secureTextEntry={true}
               multiline={false}
@@ -70,10 +87,14 @@ const Otp = () => {
               onChangeText={(value) => {
                 setNumThree(value);
                 if (value.length === 1) {
+                  num4.current.focus();
+                }else if(value.length === 0){
+                  num2.current.focus();
                 }
                 }}
             />
             <TextInput
+              ref={num4}
               placeholderTextColor={COLOR.blue}
               secureTextEntry={true}
               multiline={false}
@@ -85,7 +106,8 @@ const Otp = () => {
               value={numFour}
               onChangeText={(value) => {
                 setNumFour(value);
-                if (value.length === 1) {
+                if (value.length === 0) {
+                  num3.current.focus()
                 }
                 }}
             />

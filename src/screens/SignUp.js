@@ -15,7 +15,7 @@ const SignUp = () => {
         <ScrollView bounces={false}>
             <SafeAreaView style={styles.container}>
               <View style={styles.header}>
-                  <Text style={{ fontWeight:'bold', color:'#ffffff', fontSize: 20}}>SignUp</Text>
+                  <Text style={{ fontWeight:'bold', color:'#ffffff', fontSize: 20}}>Sign Up</Text>
                   <Image source={images.Logo} style={styles.image} />
                 </View>
             <View style={{height:height}}> 

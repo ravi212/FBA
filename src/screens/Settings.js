@@ -4,16 +4,16 @@ import SettingsList from "../components/settingsList";
 import images from "../constants/images";
 import { COLOR } from "../constants/theme";
 
-const Settings =() =>{
+const Settings =({navigation}) =>{
     return (
         <SafeAreaView style={{flex:1}}>
         <View style={styles.container}>
           <View style={styles.wrapper}>
-            <SettingsList imageSource={images.Logo} text='Set Radius'/>
-            <SettingsList imageSource={images.Logo} text='Family Members'/>
+            <SettingsList imageSource={images.Logo} text='Set Radius' navigate={()=>navigation.navigate('SetRadius')}/>
+            <SettingsList imageSource={images.Logo} text='Family Members' navigate={()=>navigation.navigate('AddFamilyMembers')}/>
             <SettingsList imageSource={images.Logo} text='Change Home Location'/>
             <SettingsList imageSource={images.Logo} text='Emergency Number'/>
-            <SettingsList imageSource={images.Logo} text='Terms & Conditions'/>
+            <SettingsList imageSource={images.Logo} text='Terms & Conditions'navigate={()=>navigation.navigate('Terms')}/>
             <SettingsList imageSource={images.Logo} text='About'/>
           </View>
         </View> 
