@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Pressable,SafeAreaView, View, StyleSheet, KeyboardAvoidingView, Image, Text, TextInput, ScrollView, Platform, TouchableOpacity } from 'react-native';
+import Spinner from 'react-native-loading-spinner-overlay';
 import PhoneInput from 'react-native-phone-number-input';
 import images from '../constants/images';
 import { COLOR, FONTS, height } from '../constants/theme';
+import { AuthContext } from '../context/AuthContext';
 const Signin = ({navigation}) => {
+    const [phone, setPhone] = useState(null);
+    const [password, setPassword] = useState(null);
     const[enableShift, setEnableShift] = useState(false);
-    
+    const {isLoading ,Login} = useContext(AuthContext);
     return (
      <KeyboardAvoidingView 
      keyboardVerticalOffset={-200}
@@ -29,6 +33,8 @@ const Signin = ({navigation}) => {
                 textInputProps={{placeholderTextColor:COLOR.blue}}
                 codeTextStyle={{color: COLOR.blue}}
                 countries={['US']}
+                onChangeText={phone=>setPhone(phone)}
+                value={phone}
                 />
               <TextInput
               placeholderTextColor={COLOR.blue}
@@ -37,6 +43,8 @@ const Signin = ({navigation}) => {
               placeholder="Enter Password"
               style={styles.passInput}
               onFocus={()=>setEnableShift(true)}
+              onChangeText={pass=>setPassword(pass)}
+              value={password}
             />
             <TouchableOpacity onPress={()=>{
               navigation.push('ForgetPassword');
@@ -50,7 +58,7 @@ const Signin = ({navigation}) => {
                                   : COLOR.pressed
                               },
                                styles.button
-                         ]} onPress={()=>{}}>
+                         ]} onPress={()=>Login(phone, password)}>
                     <Text style={styles.text}>SignIn </Text>
                 </Pressable>
                 <Pressable style={({ pressed }) => [

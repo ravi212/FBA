@@ -1,21 +1,31 @@
 import React, { useRef, useState } from 'react';
-import { Pressable,SafeAreaView, View, StyleSheet, KeyboardAvoidingView, Image, Text, TextInput, ScrollView, Platform, TouchableOpacity } from 'react-native';
+import { Pressable,SafeAreaView, View, StyleSheet, Image, Text } from 'react-native';
 import images from '../constants/images';
-import { COLOR, FONTS, height } from '../constants/theme';
+import { COLOR, FONTS } from '../constants/theme';
+import CircleSlider from "react-native-circle-slider";
 const SetRadius = () => {
-    const[enableShift, setEnableShift] = useState(false);
-    const [numOne, setNumOne] = useState('');
-    const [numTwo, setNumTwo] = useState('');
-    const [numThree, setNumThree] = useState('');
-    const [numFour, setNumFour] = useState('');
-    const ref= useRef();
+    const [radius, setRadius] = useState(150);
     return (
             <SafeAreaView style={styles.container}>
               <View style={styles.header}>
                   <Text style={{  fontWeight:'bold', color:'#ffffff', fontSize: 20}}>Set Radius</Text>
                   <Image source={images.Logo} style={styles.image} />
-                </View>
+              </View>
               <View style={styles.wrapper}>
+              <View style={{width:'100%', height:250, justifyContent:'center', alignItems:'center'}}>
+                <CircleSlider 
+                textSize={2}
+                btnRadius={20} 
+                dialRadius={100}
+                dialWidth={10}
+                meterColor={COLOR.yellow}
+                strokeWidth={10}
+                textColor={COLOR.yellow}
+                value={radius}
+                onValueChange={value=>setRadius(value)}
+                 />
+                 <Text style={{color:COLOR.blue, position:'absolute', fontSize:25,fontWeight:'bold'}}>{radius} Km</Text>
+              </View>
                 <Pressable style={({ pressed }) => [
                               {
                                 backgroundColor: pressed
@@ -75,7 +85,6 @@ const styles = StyleSheet.create({
         textAlign: 'center'
       },
       button: {
-        flexDirection:'row',
         alignItems: 'center',
         justifyContent: 'center',
         paddingVertical: 20,

@@ -15,10 +15,10 @@ const Splash = ({navigation}) =>{
         <View style={styles.container}>
             <View style={styles.wrapper}>
                 <Image style={styles.image} source={images.Logo}></Image>
-                {/* <Separator />
-                <Separator /> */}
-                {/* <ActivityIndicator /> */}
-                <Pressable style={({ pressed }) => [
+                <Separator />
+                <Separator />
+                <ActivityIndicator />
+                {/* <Pressable style={({ pressed }) => [
                               {
                                 backgroundColor: pressed
                                   ? COLOR.yellow
@@ -27,7 +27,7 @@ const Splash = ({navigation}) =>{
                                styles.button
                          ]} onPress={()=>navigation.navigate('Home')}>
                     <Text style={styles.text}>{title} </Text>
-                </Pressable>
+                </Pressable> */}
             </View>
         </View>
     )

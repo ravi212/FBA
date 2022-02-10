@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Modal, StyleSheet, Text, View, Image } from 'react-native';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { COLOR, FONTS, height } from '../constants/theme';
@@ -7,13 +7,17 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import images from '../constants/images';
 import Options from '../components/optionsCard';
 import PoliceAlert from '../components/PoliceAlertCard';
+import { AuthContext } from '../context/AuthContext';
+import Spinner from 'react-native-loading-spinner-overlay/lib';
 
 const Separator = () => (
     <View style={styles.separator} />
   );
 const Home = () =>{
+  const {isLoading, userInfo} = useContext(AuthContext);
     return (
         <SafeAreaView style={{flex: 1, backgroundColor:'white'}}>
+        <Spinner visible={isLoading}/>
           <View style={styles.header}>
             <Text style={{flex:1, marginLeft:40, fontWeight:'bold', color:'#ffffff', fontSize: 20}}>Home</Text>
             <Image source={images.Logo} style={styles.image} />

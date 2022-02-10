@@ -7,33 +7,37 @@ import Home from '../screens/Home';
 import Terms from '../screens/Terms';
 import Splash from '../screens/SplashLogo';
 import Settings from '../screens/Settings';
+import AddRequest from '../components/invitationCard';
+import AddRequests from '../screens/AddRequests';
 
 const Tab = createBottomTabNavigator();
 
 const Tabs = () =>{
     return (
-        <Tab.Navigator  {...{ screenOptions }} >
-            <Tab.Screen
-                name='Splash'
-                component={Splash}
+        <Tab.Navigator initialRouteName='Home' {...{ screenOptions }} >
+                <Tab.Screen
+                name='Add Requests'
+                component={AddRequests}
                 options={{
-                    headerShown: false,
+                    headerTitleStyle: styles.headerTitle,
+                    headerTintColor: '#ffffff',
+                    headerStyle: styles.header,
                     tabBarIcon: ({focused}) => (
                         <Image 
                         source={images.Logo}
                         resizeMode='contain'
                         style={
-                           {
+                          [ {
                                width: 30,
                                height: 30,
-                               tintColor: focused ? COLOR.darkGrey : COLOR.lightGrey
-                           }
+                               tintColor: focused ? COLOR.blue : 'white'
+                           }]
                         }
                        />
                     )
                 }}
             />
-                        <Tab.Screen
+                <Tab.Screen
                 name='Home'
                 component={Home}
                 options={{
@@ -46,7 +50,7 @@ const Tabs = () =>{
                            {
                                width: 30,
                                height: 30,
-                               tintColor: focused ? COLOR.darkGrey : COLOR.lightGrey
+                               tintColor: focused ? COLOR.blue : 'white'
                            }
                         }
                        />
@@ -68,6 +72,7 @@ const Tabs = () =>{
                            {
                                width: 30,
                                height: 30,
+                               tintColor: focused ? COLOR.blue : 'white'
                            }
                         }
                        />
@@ -99,9 +104,9 @@ const screenOptions =  {
         fontWeight: 'bold',
         textTransform: 'uppercase'
     },
-    tabBarActiveTintColor: 'red',
-    tabBarInactiveTintColor: COLOR.blue,
-    tabBarActiveBackgroundColor: 'white',
+    tabBarActiveTintColor: COLOR.blue,
+    tabBarInactiveTintColor: 'white',
+    tabBarActiveBackgroundColor: COLOR.darkGrey,
   };
   const styles = StyleSheet.create({
     header:{

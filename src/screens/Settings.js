@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { SafeAreaView, Text, View, StyleSheet,Image } from "react-native";
 import SettingsList from "../components/settingsList";
 import images from "../constants/images";
 import { COLOR } from "../constants/theme";
-
+import { AuthContext } from "../context/AuthContext";
 const Settings =({navigation}) =>{
+  const {Logout} = useContext(AuthContext);
     return (
         <SafeAreaView style={{flex:1}}>
         <View style={styles.container}>
@@ -15,6 +16,7 @@ const Settings =({navigation}) =>{
             <SettingsList imageSource={images.Logo} text='Emergency Number'/>
             <SettingsList imageSource={images.Logo} text='Terms & Conditions'navigate={()=>navigation.navigate('Terms')}/>
             <SettingsList imageSource={images.Logo} text='About'/>
+            <SettingsList imageSource={images.Logo} text='Logout' navigate={Logout}/>
           </View>
         </View> 
         </SafeAreaView>

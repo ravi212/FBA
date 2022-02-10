@@ -62,7 +62,7 @@ const AddRequests = () =>{
                         contentContainerStyle={{
                             justifyContent: 'center',
                             alignItems: 'center',
-                            width: '100%'
+                            width: '100%',
                         }}
                     />
             </View>
@@ -81,7 +81,6 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 35,
         borderTopRightRadius: 35,
         paddingTop:0,
- 
     },
     textTitle: {
         fontSize: 16,

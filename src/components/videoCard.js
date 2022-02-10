@@ -1,41 +1,19 @@
-import React from "react";
+import React from 'react';
 import { View, StyleSheet, Image,Text,Pressable } from "react-native";
 import { CheckBox } from "react-native-elements";
 import images from "../constants/images";
 import { COLOR, FONTS, width } from "../constants/theme";
 import { Icon } from 'react-native-elements';
-const AddRequest = ({imageSource, contactName }) =>{
+const VideoCard = ({imageSource,content, status, date}) =>{
     return (
-        
         <View style={styles.wrapper}>
-            <View style={styles.inner}> 
+            <View style={[styles.inner]}> 
                     <Image source={imageSource}  style={styles.image}/>
-                    <Text style={styles.name}>{contactName}</Text>
+                    <View style={{flex:1, height:'80%'}}>
+                        <Text style={styles.content}>{content}</Text>
+                        <Text style={styles.content}>{status}: {date}</Text>
+                    </View>
             </View>
-        <View style={styles.buttonWrapper}>
-                <Pressable style={({ pressed }) => [
-                                {
-                                    backgroundColor: pressed
-                                    ? COLOR.yellow
-                                    : COLOR.pressed
-                                },
-                                
-                                styles.button
-                                ]} onPress={()=>{}}>
-                        <Text style={styles.text}><Icon name="check" size={18} color={COLOR.blue}/>Confirm</Text>
-                </Pressable>
-                <Pressable style={({ pressed }) => [
-                                {
-                                    backgroundColor: pressed
-                                    ? COLOR.yellow
-                                    : COLOR.pressed
-                                },
-                                
-                                styles.button
-                                ]} onPress={()=>{}}>
-                        <Text style={styles.text}> <Icon name="delete-outline" size={18} color={COLOR.blue}/>Delete</Text>
-                </Pressable>
-        </View>
         </View>
     )
 }
@@ -43,16 +21,14 @@ const styles = StyleSheet.create({
     wrapper:{
         width:width-90,
         borderRadius: 40,
-        borderWidth: 1,
         borderColor: COLOR.blue,
-        height: 200,
+        height: 130,
         justifyContent:"center",
         alignItems:"center",
         marginTop: 10,
     },
     inner:{
-        borderTopLeftRadius: 40,
-        borderTopRightRadius: 40,
+        borderRadius:15,
         borderWidth: 1,
         borderColor: COLOR.blue,
         width: '100%',
@@ -64,21 +40,18 @@ const styles = StyleSheet.create({
         marginTop:0
     },
     image:{
-        marginLeft:20,
-        width:90,
-        height:90,
+        marginLeft:15,
+        width:100,
+        height:100,
         borderColor: COLOR.blue,
         borderWidth: 1,
-        borderRadius: 100,
+        borderRadius: 20,
     },
-    name:{
+    content:{
         color:COLOR.blue,
-        fontSize:14,
-        fontWeight:'bold',
-        textAlign:"center",
+        fontSize:10,
         fontFamily:FONTS.font,
-        marginLeft:20,
-        fontSize: 25
+        margin:10,
     },
     number:{
         color:COLOR.blue,
@@ -120,4 +93,4 @@ const styles = StyleSheet.create({
         letterSpacing:0.25
       },
 });
-export default AddRequest;
+export default VideoCard;
