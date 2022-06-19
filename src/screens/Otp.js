@@ -4,7 +4,7 @@ import PhoneInput from 'react-native-phone-number-input';
 import images from '../constants/images';
 import { COLOR, FONTS, height } from '../constants/theme';
 const Otp = ({navigation}) => {
-    const[enableShift, setEnableShift] = useState(false);
+    const [enableShift, setEnableShift] = useState(false);
     const [numOne, setNumOne] = useState('');
     const [numTwo, setNumTwo] = useState('');
     const [numThree, setNumThree] = useState('');
@@ -19,7 +19,7 @@ const Otp = ({navigation}) => {
     },[num1]);
     return (
      <KeyboardAvoidingView 
-     keyboardVerticalOffset={-200}
+      keyboardVerticalOffset={-200}
       style={{flex:1, backgroundColor:'white'}} 
       behavior={Platform.OS === "android" ? "position" : "padding"} 
       enabled={enableShift}>
