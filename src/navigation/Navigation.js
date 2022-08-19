@@ -17,6 +17,7 @@ import AddFamilyMembers from '../screens/AddFamilyMembers';
 import Register from '../screens/Register';
 import VideoContent from '../screens/Videos';
 import { AuthContext } from '../context/AuthContext';
+import UploadVideo from '../screens/UploadVideo';
 
 const Stack = createStackNavigator();
 const Navigation=()=>{
@@ -65,6 +66,12 @@ const Navigation=()=>{
           headerStyle: Styles.header,
           headerTintColor: '#ffffff'
         }}></Stack.Screen>
+          <Stack.Screen name='UploadVideo' component={UploadVideo}
+          options={{
+          headerShown: false,
+          title: 'Uplaod Video',
+          headerStyle: Styles.header,
+          }}></Stack.Screen>
         </>
       ):(
         <>

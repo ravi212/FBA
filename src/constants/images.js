@@ -11,6 +11,7 @@ export const VideoThumbnail = require('../assets/images/VideosThumb.png');
 export const Home = require('../assets/images/Home.png');
 export const Camera = require('../assets/images/camera.png');
 export const outerBorder = require('../assets/images/ecll.png');
+export const VideoSample = require('../assets/images/video_sample.jpeg');
 export default {
     Logo,
     Flag,
@@ -24,5 +25,6 @@ export default {
     VideoThumbnail,
     Home,
     Camera,
-    outerBorder
+    outerBorder,
+    VideoSample
 };

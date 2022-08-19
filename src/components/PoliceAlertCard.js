@@ -5,7 +5,7 @@ import { COLOR } from "../constants/theme";
 
 const PoliceAlert = (props) =>{
     return (
-      <TouchableOpacity>
+      <TouchableOpacity onPress={()=> {props.navigation.push('UploadVideo');}}>
         <View style={styles.policAlert}>
           <Text style={styles.text}>{props.text}</Text>
           <Text style={styles.subtext}>{props.subtext}</Text>

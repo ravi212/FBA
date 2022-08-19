@@ -13,7 +13,7 @@ import Spinner from 'react-native-loading-spinner-overlay/lib';
 const Separator = () => (
     <View style={styles.separator} />
   );
-const Home = () =>{
+const Home = ({navigation}) =>{
   const {isLoading, userInfo} = useContext(AuthContext);
     return (
         <SafeAreaView style={{flex: 1, backgroundColor:'white'}}>
@@ -24,7 +24,7 @@ const Home = () =>{
           </View> 
         <View style={styles.backgroundContainer}>
             <View style={styles.wrapper}>
-              <PoliceAlert imageSource={images.Police} text='Police' subtext='Interaction Alert'/>
+              <PoliceAlert navigation={navigation} imageSource={images.Police} text='Police' subtext='Interaction Alert'/>
             </View>
         </View>
         <View style={styles.selectOption}>
